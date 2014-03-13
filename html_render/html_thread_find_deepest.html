@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <script src="jquery-min.js"></script>
+    <style>
+        div {
+            background: #bbb;
+            padding: 5px;
+        }
+        div > div {background: #F00;}
+        div > div > div {background: #0F0}
+        div > div > div > div {background: #00F}
+        div > div > div > div > div {background: #0FF}
+    </style>
+</head>
+<body>
+    <div>
+        <div>
+            <div>
+                <div></div>
+            </div>
+        </div>
+        <div>
+            <div>
+                <div></div>
+            </div>
+            <div>
+                <div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var deepest=null, index;
+    var calc_deep = function() {
+        console.log('calc');
+        if($(this).is(':hover'))
+        {
+            console.log('hover')
+            var $this = $(this); //cache jQuery this
+            var i = $this.parent().data("deep") + 1;
+            $this.data('deep', i);
+            if (i > index) {
+                deepest = $this;
+                index = i;
+            }
+            $this.children().each(calc_deep);
+        }
+        else console.log('NOT')
+    }
+    var find_deepest = function() {
+        if(deepest!=null)
+           $(deepest[0]).css('border','');
+        body = $('body').children().eq(0);
+        body.data('deep', 0);
+        index = 0;
+        deepest = body;
+        body.children().each(calc_deep);
+        $(deepest[0]).css('border','3px dotted black');
+    }
+    $('body').click(find_deepest);
+    //find_deepest();
+    //console.log(deepest[0]);​
+    
+    $('body').mousemove(find_deepest);
+</script>

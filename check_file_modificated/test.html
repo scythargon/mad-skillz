@@ -1,0 +1,36 @@
+<html>
+<head>
+<style>
+body{
+    padding: 0px;
+    margin: 0px;
+}
+.button{
+    background: red;
+    margin: 0px;
+    height: 100px;
+    width: 100px;
+    margin: 100px;
+    -webkit-transform: rotate(200deg);
+}
+.button:hover{
+    background: green;
+}
+</style>
+</head>
+<body>
+	<div class='button'>
+		123
+	</div>
+</body>
+<script type='text/javascript' src='file:///home/argon/py/html_render/jquery-min.js'></script>
+<script type="text/javascript">
+$(document).ready(function(){
+   $(document).mousemove(function(e){
+      window.mouseXPos = e.pageX;
+      window.mouseYPos = e.pageY;
+   }); 
+});
+
+</script>
+</html>	

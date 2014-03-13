@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <title>question</title>
+    <script type="text/javascript" src="jquery-big.js"></script>
+    <script type="text/javascript">
+        //document ready script here
+        $(document).ready(function() {
+            $('#test').click(function() {
+                if ($('#hello').is(':hover')) {
+                    $('#hello').html($('#hello').html()+' strange ');
+                }
+            });
+        });
+    </script>
+</head>
+    <!-- element below-->
+    <!--<div id="test">
+        <div id="hello">click</div>
+        <div id="no-hello">click</div>
+    </div>-->
+<body>
+    <div id="test" style='padding:100px;'>
+111111111
+ </div>
+</body>
+</html>

@@ -1,0 +1,364 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<script type='text/javascript' src='file:///home/argon/py/html_render/jquery-min.js'></script>
+<link href="custom-scrollbar-plugin/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css" />
+<script src="file:///home/argon/py/html_render/jquery-ui.min.js"></script>
+<script src="custom-scrollbar-plugin/jquery.mousewheel.min.js"></script>
+<script src="custom-scrollbar-plugin/jquery.mCustomScrollbar.js"></script>
+<style>
+/*
+.button:hover, #searchsubmit:hover, #wp_page_numbers a:hover, .gallery-explore a:hover {
+-webkit-box-shadow: inset 0 2px 6px 
+white,0 3px 3px 
+rgba(0, 0, 0, 0.6);
+-moz-box-shadow: inset 0 2px 6px #fff,0 3px 3px rgba(0,0,0,0.6);
+box-shadow: inset 0 2px 6px 
+white,0 3px 3px 
+rgba(0, 0, 0, 0.6);
+}
+article h2 a:hover span {
+box-shadow: inset 0 2px 6px 
+white, 0 3px 3px 
+rgba(0, 0, 0, 0.6);
+}
+.button, #searchsubmit, #wp_page_numbers a, .gallery-explore a {
+display: inline-block;
+position: relative;
+padding: 7px 15px !important;
+-moz-border-radius: 18px;
+-webkit-border-radius: 18px;
+border-radius: 18px;
+font: 15px/1.4 "myriad-pro-1","myriad-pro-2","Lucida Grande",Sans-Serif;
+background-color: 
+rgb(182, 211, 244);
+background-image: -webkit-gradient(linear, left top, left bottom, from(
+rgb(182, 211, 244)), to(
+rgb(84, 131, 184)));
+background-image: -webkit-linear-gradient(top, 
+rgb(182, 211, 244), 
+rgb(84, 131, 184));
+background-image: -moz-linear-gradient(top, 
+rgb(182, 211, 244), 
+rgb(84, 131, 184));
+background-image: -ms-linear-gradient(top, 
+rgb(182, 211, 244), 
+rgb(84, 131, 184));
+background-image: -o-linear-gradient(top, 
+rgb(182, 211, 244), 
+rgb(84, 131, 184));
+color: 
+white !important;
+-webkit-box-shadow: inset 0 1px 1px 
+white,0 3px 3px 
+rgba(0, 0, 0, 0.6);
+-moz-box-shadow: inset 0 1px 1px #fff,0 3px 3px rgba(0,0,0,0.6);
+box-shadow: inset 0 1px 1px 
+white,0 3px 3px 
+rgba(0, 0, 0, 0.6);
+border: 1px solid 
+rgb(154, 201, 255) !important;
+font-weight: 600;
+text-shadow: 0 -1px 0 
+rgba(0, 0, 0, 0.3);
+}
+article h2 a span {
+position: absolute !important;
+bottom: 0;
+top: auto !important;
+left: 0;
+}
+
+article h2 a:hover {
+color: 
+rgb(243, 160, 30);
+}
+
+article a:hover, .commentlist .comment a:hover, .Message a:hover {
+color: 
+rgb(35, 130, 197);
+}
+
+article a, .commentlist .comment a, .Message a {
+color: 
+rgb(75, 141, 181);
+}
+
+a {
+color: 
+black;
+}
+a {
+color: 
+rgb(0, 0, 238);
+}
+
+color: -webkit-link;
+cursor: auto;
+}
+
+h2 {
+font-size: 40px;
+}
+
+h1, h2, h3, h4 {
+font-family: "kulturista-web-1","kulturista-web-2",Serif;
+font-weight: 300;
+line-height: 1;
+}
+user agent stylesheeth2 {
+font-size: 1.5em;
+font-weight: bold;
+}
+
+body {
+font: 16px/1.4 "myriad-pro-1","myriad-pro-2","Lucida Grande",Sans-Serif;
+color: 
+rgb(51, 51, 51);
+}
+body, button, input, select, textarea {
+font-family: sans-serif;
+}
+#wp_page_numbers a {
+margin-right: 2px;
+padding: 3px;
+width: 22px;
+height: 22px;
+line-height: 22px;
+text-align: center;
+}*/
+</style>    
+<style>
+div.frame_top{
+    opacity:0.7;
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-size: 100%, 100%;
+    background: url(http://wool/frame_top_300.png);
+    background-repeat:no-repeat;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.5)), to(rgba(0,0,0,0)));/**/
+}
+div.frame_bottom{
+    z-index:-1;
+    opacity:0.7;
+    position:absolute;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-size: 100%, 100%;
+    background: url(http://wool/frame_bottom_300_flip-10.png);
+    background-repeat:no-repeat;
+    background-position:50% 100%;
+    -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.0)), to(rgba(0,0,0,0.5)));/**/
+}
+div.gradient{
+    /*background: -webkit-linear-gradient(top, rgba(0,0,200,0.8), rgba(0,0,0,0));/**/
+    -webkit-box-shadow: 5px 5px 10px rgba(0,0,0,0.6);/**/
+    border-radius: 5px;
+    height:70%;
+    width:70%;
+    position:absolute;
+    left:14%;
+    top:15%;
+}
+div.only_mouse{
+    position:absolute;
+    left:80.8%;
+    top:15%;
+    background:#6f6;
+    opacity: 0.5;
+    height:10px;
+    width:10px;
+    cursor: pointer;
+}
+div.only_mouse_hover{
+    background:yellow;
+}
+div.item {
+    border: 1px solid #0f0;
+    margin:3px;
+    cursor:hand;
+    padding: 0px;
+    position: relative;
+    border-radius: 4px;
+}
+div.item:hover{
+    border: 1px solid #ff0;
+    margin:3px;
+}
+div.controls{
+    float:right;
+    border-radius: 3px;
+    font-family: monospace;
+    font-weight:bold;
+    cursor:pointer;
+    border: 1px solid #aaa;
+    color: #aaa;
+    height:10px;
+    width:10px;
+    position: absolute;
+    top:0px;
+    right: 0px;
+}
+div.controls:hover{
+    border: 1px solid #eee;
+    color: #eee;
+}
+div.controls>span{
+    margin: -3px 0px 0px 0px;
+    display: block;
+}
+body{
+    
+}
+.finam{
+    /*background: red;/**/
+    /*background: -webkit-linear-gradient(top, rgba(255,0,0,0.7), rgba(255,0,0,0.2));/**/
+    color: rgba(100,0,0,0.8);
+    border: 1px solid rgba(255,0,0,0.5);
+}
+.bookmark{
+    /*font-family: 'Garamond', 'Georgia', serif;/**/
+/*    -webkit-border-top-left-radius: 50px 30px; 
+    -webkit-border-bottom-right-radius: 50px 30px;/**/
+    -webkit-border-top-left-radius: 20px;/**/
+    -webkit-border-top-right-radius: 4px;/**/
+    -webkit-border-bottom-right-radius: 15px;/**/
+    
+    /*border-radius: 4px;/**/
+
+    -webkit-transform: rotate(270deg);/**/
+    text-align: center;
+    font-family: georgia,serif;
+    font-style: italic;
+    float: left;
+    font-size: 12px;
+    height: 13px;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    overflow: hidden;
+}
+.finam>span{
+    margin: 0px 1px 0px 2px;
+}
+</style>
+<div id='head_hidden' style='display:none;'>
+    <div class='controls'><span>x</span></div>
+</div>
+</head>
+<body>
+    <div class='frame_top'></div>
+    <div class='gradient'>
+        
+        <div class='item'>
+            <div class='bookmark finam'>
+                <span>Finam.ru</span>
+            </div>
+            sss1
+        </div>
+        <div class='item'>
+            <div class='bookmark finam'>
+                    <span>Finam.ru</span>
+            </div>
+            ssss1<br><br>blabla2
+        </div>
+        <div class='item'>
+            <div class='bookmark finam'>
+                    <span>Finam.ru</span>
+            </div>
+            ssss1<br><br><br>blabla
+        </div>
+        <div class='item'>ssss1</div>
+        <div class='item'>ssss1</div>
+        <div class='item'>ssss1</div>
+    </div>
+    <div class='only_mouse'></div>
+    <div class='frame_bottom'></div>
+</body>
+</html>
+<script>
+var controls = $('#head_hidden').children().eq(0);
+var win_clickable=false;
+var only_mouse_click = function(){
+    document.location="program:/make_win_clickable";
+    win_clickable ? win_clickable=false : win_clickable=true;
+    if (!win_clickable)
+        $('body').delay(500).click();
+}
+var win_leaved = function(){
+    console.log('red');
+    $('.only_mouse').removeClass('only_mouse_hover');
+}
+var win_entered = function(){
+    console.log('yellow');
+    $('.only_mouse').addClass('only_mouse_hover');
+}
+var item_mouse_over = function() {
+    $(this).append(controls);
+}
+var item_mouse_leave = function() {
+    $(this).children().last().detach();
+}
+var close_click = function(){
+    $(this).parent().css('background','gray');
+}
+$('.only_mouse').click(only_mouse_click);
+
+$('.item').mouseover(item_mouse_over);
+$('.item').mouseleave(item_mouse_leave);
+$('.controls').click(close_click);
+var move_bookmark = function(){
+    //$(this).css('width',$(this).parent().css('height'));
+    var sh = parseInt($(this).css('height').replace('px',''));
+    var ph = parseInt($(this).parent().css('height').replace('px',''));
+    if (sh%2==0)
+    {
+        if(ph%2!=0)
+        {
+            ph++;
+            $(this).parent().css('height',ph+'px');
+        }
+    }
+    else
+    {
+        if(ph%2==0)
+        {
+            ph++;
+            $(this).parent().css('height',ph+'px');
+        }
+    }
+    //var sw = parseInt($(this).css('width').replace('px',''));
+    var sw = ph;
+    $(this).css('width',sw+'px');
+    var offset = parseInt(ph-sw/2-sh/2-1)+'px'
+    //console.log(sw+"/"+sh);
+    $(this).css('top',offset);
+    $(this).css('left',-sw/2+sh/2-1+'px');
+    $(this).parent().css('padding','0px 0px 0px '+sh+'px');
+    var angle=-1*Math.atan(sw/sh)*180/Math.PI;
+    angle=-80;
+    $(this).css('background','-webkit-linear-gradient('+angle+'deg, rgba(255,0,0,0.2) 40%,rgba(255,0,0,0.8) 50%,rgba(255,0,0,0.2) 60%)');
+    $(this).parent().css('border','1px solid rgba(255,0,0,0.5)');
+//    background: -webkit-linear-gradient(-80deg, rgba(255,0,0,0.2) 40%,rgba(255,0,0,0.8) 50%,rgba(255,0,0,0.2) 60%);
+
+}
+$('.finam').each(move_bookmark);
+$(".gradient").mCustomScrollbar({
+    autoDraggerLength:true,
+    scrollButtons:{
+        enable: true,
+    },
+    advanced:{
+        updateOnBrowserResize: true,
+        updateOnContentResize: true,
+    }
+});
+$('.mCSB_container').css('width','206px');
+$('.mCSB_scrollTools').css('left','197px');
+
+</script>
