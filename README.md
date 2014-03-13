@@ -4,3 +4,5 @@ You ask yourself what the hell is it now? It is some fun with gtk+, cairo, trans
 Actually a semi-transparent(I made it by myself! So proud of this 20 lines of code:) ) gtk-window, with webkit browser in it, you can even click through it to other windows, and if you command via JS (click on the little yellow square in the upper right corner of the widget) - you can make the whole window clickable.
 
 Mad skillz, told ya;)
+
+Right, NB: pay attention that I did not mention if it is still works after 2 years of rotting down at google-drive, but may be I can make it work)
